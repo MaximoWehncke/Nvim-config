@@ -15,7 +15,21 @@ return {
 			local alpha = require("alpha")
 			local dashboard = require("alpha.themes.dashboard")
 
-			dashboard.section.header.val = require("ascii").art.text.neovim.sharp
+			-- Get all neovim ASCII arts
+			local neovim_arts = require("ascii").art.text.neovim
+
+			-- Get all the keys (art names) and pick a random one
+			local art_names = {}
+			for name, _ in pairs(neovim_arts) do
+				table.insert(art_names, name)
+			end
+
+			-- Pick random art
+			math.randomseed(os.time())
+			local random_art = neovim_arts[art_names[math.random(#art_names)]]
+
+			-- Set header to random art
+			dashboard.section.header.val = random_art
 
 			-- Set menu
 			dashboard.section.buttons.val = {
