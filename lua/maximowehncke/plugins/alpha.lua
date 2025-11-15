@@ -28,6 +28,7 @@ return {
 			dashboard.button("SPC wr", "󰁯  > Restore Session For Current Directory", "<cmd>AutoSession restore<CR>"),
 			dashboard.button("q", " > Quit NVIM", "<cmd>qa<CR>"),
 		}
+		-- NOTE: 2 coomit 2
 
 		-- Send config to alpha
 		alpha.setup(dashboard.opts)
