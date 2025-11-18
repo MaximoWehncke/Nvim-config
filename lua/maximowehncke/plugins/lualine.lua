@@ -14,6 +14,8 @@ return {
 			fg = "#c3ccdc",
 			bg = "#112638",
 			inactive_bg = "#2c3043",
+			dark_bg = "#1a1a1a",
+			inactive_fg = "#606060",
 		}
 
 		local my_lualine_theme = {
@@ -43,9 +45,9 @@ return {
 				c = { bg = colors.bg, fg = colors.fg },
 			},
 			inactive = {
-				a = { bg = colors.inactive_bg, fg = colors.semilightgray, gui = "bold" },
-				b = { bg = colors.inactive_bg, fg = colors.semilightgray },
-				c = { bg = colors.inactive_bg, fg = colors.semilightgray },
+				a = { bg = colors.dark_bg, fg = colors.inactive_fg, gui = "bold" },
+				b = { bg = colors.dark_bg, fg = colors.inactive_fg },
+				c = { bg = colors.dark_bg, fg = colors.inactive_fg },
 			},
 		}
 
@@ -53,19 +55,50 @@ return {
 		lualine.setup({
 			options = {
 				theme = my_lualine_theme,
+				disabled_filetypes = { "packer", "NvimTree" },
+				section_separators = { left = "", right = "" },
+				component_separators = { left = "|", right = "|" },
+				globalstatus = false,
 			},
 			sections = {
+				lualine_a = {},
+				lualine_b = {},
+				lualine_c = {},
+				lualine_x = {},
+				lualine_y = {},
+				lualine_z = {},
+			},
+			inactive_sections = {
+				lualine_a = {},
+				lualine_b = {},
+				lualine_c = {},
+				lualine_x = {},
+				lualine_y = {},
+				lualine_z = {},
+			},
+
+			winbar = {
+				lualine_a = { "mode" },
+				lualine_b = { "filename" },
+				lualine_c = { "diff" },
 				lualine_x = {
 					{
 						lazy_status.updates,
 						cond = lazy_status.has_updates,
 						color = { fg = "#ff9e64" },
 					},
-					{ "encoding" },
-					{ "fileformat" },
-					{ "filetype" },
 				},
+				lualine_y = { "filename" },
+				lualine_z = { "branch" },
 			},
+			inactive_winbar = {
+				lualine_a = { "filename" },
+				lualine_b = { "diff" },
+			},
+
+			extensions = {},
 		})
+
+		vim.opt.laststatus = 0
 	end,
 }
