@@ -45,10 +45,6 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		-- See `:help telescope.builtin`
 		local builtin = require("telescope.builtin")
 		local keymap = vim.keymap
-		keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
-		keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
-		keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
-		keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 
 		keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Fuzzy find files in cwd" })
 		keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Fuzzy find recent files" })
@@ -56,6 +52,8 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		keymap.set("n", "<leader>fc", builtin.grep_string, { desc = "Find string under cursor in cwd" })
 		keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "[F]ind [D]iagnostics" })
 		keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "[F]ind [K]eymaps" })
+		keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[S]earch [H]elp" })
+		keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 
 		-- Slightly advanced example of overriding default behavior and theme
 		vim.keymap.set("n", "<leader>fb", function()
