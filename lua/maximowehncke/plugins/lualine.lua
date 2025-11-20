@@ -21,7 +21,7 @@ return {
 		-- configure lualine with modified theme
 		lualine.setup({
 			options = {
-				theme = "catppuccin",
+				theme = "auto",
 				disabled_filetypes = { "packer", "NvimTree" },
 				section_separators = { left = "", right = "" },
 				component_separators = { left = "", right = "" },
