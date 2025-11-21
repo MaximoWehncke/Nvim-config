@@ -32,7 +32,25 @@ return {
 				return "%2l:%-2v"
 			end
 
-			-- ... and there is more!
+			require("mini.operators").setup({
+				-- Each operation can be customized
+				evaluate = {
+					prefix = "g=",
+				},
+				exchange = {
+					prefix = "gx",
+				},
+				multiply = {
+					prefix = "gm",
+				},
+				replace = {
+					prefix = "gr",
+				},
+				sort = {
+					prefix = "gs",
+				},
+			})
+
 			--  Check out: https://github.com/echasnovski/mini.nvim
 		end,
 	},
