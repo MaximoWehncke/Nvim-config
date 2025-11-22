@@ -103,7 +103,24 @@ return {
 
 		config = function()
 			vim.g.copilot_no_tab_map = true
-			vim.api.nvim_set_keymap("i", "<S-Tab>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+			vim.api.nvim_set_keymap(
+				"i",
+				"<S-Tab>",
+				'copilot#Accept("<CR>")',
+				{ desc = "Accept suggestion", silent = true }
+			)
+			vim.api.nvim_set_keymap(
+				"n",
+				"<leader>cs",
+				"<cmd>Copilot disable<CR><cmd>echo 'Copilot suggestion disabled'<CR>",
+				{ desc = "Disable Copilot suggestios", silent = true }
+			)
+			vim.api.nvim_set_keymap(
+				"n",
+				"<leader>ce",
+				"<cmd>Copilot enable<CR><cmd>echo 'Copilot suggestion enabled'<CR>",
+				{ desc = "Enable Copilot suggestios", silent = true }
+			)
 		end,
 	},
 }
