@@ -70,7 +70,6 @@ return {
 			extensions = {},
 		})
 
-		vim.opt.showtabline = 1
 		vim.opt.laststatus = 0
 	end,
 }
