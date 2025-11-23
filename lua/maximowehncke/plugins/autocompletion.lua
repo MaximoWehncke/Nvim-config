@@ -57,7 +57,6 @@ return {
 			signature = { enabled = true },
 		},
 	},
-	-- GitHub Copilot
 	{
 		"github/copilot.vim",
 		priority = 999,
@@ -70,12 +69,13 @@ return {
 			local keymap = vim.keymap
 			vim.g.copilot_no_tab_map = true
 
-			keymap.set(
-				"i",
-				"<S-Tab>",
-				'copilot#Accept("<CR>")',
-				{ desc = "Accept Copilot suggestion", expr = true, silent = true }
-			)
+			vim.keymap.set("i", "<S-Tab>", function()
+				return vim.fn["copilot#Accept"]("")
+			end, {
+				expr = true,
+				replace_keycodes = false,
+				desc = "Accept Copilot suggestion",
+			})
 			keymap.set(
 				"n",
 				"<leader>cs",
