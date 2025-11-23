@@ -5,45 +5,44 @@ return {
 		build = ":TSUpdate",
 		dependencies = {
 			"windwp/nvim-ts-autotag",
+			"JoosepAlviste/nvim-ts-context-commentstring",
 		},
 		config = function()
-			-- import nvim-treesitter plugin
+			-- disable deprecated module
+			vim.g.skip_ts_context_commentstring_module = true
+
+			require("ts_context_commentstring").setup({
+				enable_autocmd = false,
+			})
+
 			local treesitter = require("nvim-treesitter.configs")
 
-			-- configure treesitter
-			treesitter.setup({ -- enable syntax highlighting
-				highlight = {
-					enable = true,
-				},
-				-- enable indentation
+			treesitter.setup({
+				highlight = { enable = true },
 				indent = { enable = true },
-				-- enable autotagging (w/ nvim-ts-autotag plugin)
-				autotag = {
-					enable = true,
-				},
-				-- ensure these language parsers are installed
+				autotag = { enable = true },
+
 				ensure_installed = {
-					"java",
-					"json",
+					"c",
+					"lua",
 					"javascript",
 					"typescript",
 					"tsx",
-					"yaml",
 					"html",
 					"css",
-					"prisma",
+					"java",
+					"bash",
+					"json",
 					"markdown",
 					"markdown_inline",
 					"svelte",
 					"graphql",
-					"bash",
-					"lua",
-					"vim",
 					"dockerfile",
 					"gitignore",
 					"query",
+					"vim",
 					"vimdoc",
-					"c",
+					"yaml",
 				},
 				incremental_selection = {
 					enable = true,
