@@ -1,17 +1,21 @@
 return {
 	{
 		"lmantw/themify.nvim",
-
 		lazy = false,
 		priority = 999,
-
+		dependencies = {
+			-- Add all colorscheme plugins as dependencies
+			"folke/tokyonight.nvim",
+			"sho-87/kanagawa-paper.nvim",
+			"catppuccin/nvim",
+			"ellisonleao/gruvbox.nvim",
+		},
 		config = function()
 			require("themify").setup({
 				-- Your list of colorschemes.
-
 				{
 					"folke/tokyonight.nvim",
-					priority = 1000, -- make sure to load this before all the other start plugins
+					priority = 1000,
 					config = function()
 						local bg = "#011628"
 						local bg_dark = "#011423"
@@ -22,7 +26,6 @@ return {
 						local fg_dark = "#B4D0E9"
 						local fg_gutter = "#627E97"
 						local border = "#547998"
-
 						require("tokyonight").setup({
 							style = "night",
 							on_colors = function(colors)
@@ -43,7 +46,6 @@ return {
 								colors.fg_sidebar = fg_dark
 							end,
 						})
-						-- load the colorscheme here
 						vim.cmd([[colorscheme tokyonight]])
 					end,
 				},
@@ -53,9 +55,13 @@ return {
 					name = "catppuccin",
 					priority = 1000,
 				},
-
-				-- Built-in colorschemes are also supported.
-				-- (Also works with any colorschemes that are installed via other plugin manager, just make sure the colorscheme is loaded before Themify is loaded.)
+				{
+					"ellisonleao/gruvbox.nvim",
+					priority = 1000,
+					config = function()
+						require("gruvbox").setup()
+					end,
+				},
 				"default",
 			})
 		end,
