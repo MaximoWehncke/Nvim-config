@@ -4,7 +4,15 @@ return {
 		event = "VeryLazy",
 		dependencies = {
 			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
+			{
+				"rcarriga/nvim-notify",
+				opts = {
+					top_down = false,
+					timeout = 3000,
+					max_width = 50,
+					stages = "fade_in_slide_out",
+				},
+			},
 		},
 		config = function()
 			require("noice").setup({
