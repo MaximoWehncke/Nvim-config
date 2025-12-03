@@ -37,8 +37,8 @@ keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }
 
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR><cmd>tabmove$<CR>", { desc = "Open new tab" }) -- open new tab
 keymap.set("n", "<leader>tk", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
-keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
-keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
+keymap.set("n", "<S-l>", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
+keymap.set("n", "<S-h>", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
 -- Highlight when yanking (copying) text
@@ -53,9 +53,25 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- TIP: Disable arrow keys in normal mode
-vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
-vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
-vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
-vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
-vim.keymap.set("n", "dzz", "<cmd>%delete _<CR>i", { desc = "Delete all without yanking" })
-vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Paste without yanking" })
+keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
+keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
+keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
+keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
+keymap.set("n", "dzz", "<cmd>%delete _<CR>i", { desc = "Delete all without yanking" })
+keymap.set("x", "<leader>p", '"_dP', { desc = "Paste without yanking" })
+
+-- Scroll
+keymap.set("n", "<C-m>", "<Nop>")
+keymap.set("n", "<C-n>", "<C-W><C-W><C-D><C-W><C-W>", { desc = "Scoll half page down neighbour window" })
+keymap.set("n", "<C-m>", "<C-W><C-W><C-U><C-W><C-W>", { desc = "Scoll half page up neighbour window" })
+
+-- quit all no sabe
+keymap.set("n", "<leader>qq", "<cmd>qa!<CR>", { desc = "Quit everything, save nothing" })
+keymap.set(
+	"n",
+	"<leader>ww",
+	'<cmd>wa<CR><cmd>echo "you\'ve just saved everything, dude"<CR>',
+	{ desc = "Save everything, for real" }
+)
+
+-- hola como estas
