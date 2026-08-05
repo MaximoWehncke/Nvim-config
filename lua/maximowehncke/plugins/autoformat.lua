@@ -25,20 +25,32 @@ return {
 				typescriptreact = { "prettier" },
 				javascript = { "prettier" },
 				javascriptreact = { "prettier" },
+				sql = { "sqruff" },
+				mysql = { "sql-formatter" },
 				java = { "google-java-format" },
 			},
-			-- formatters = {
-			-- 	prettier = {
-			-- 		args = {
-			-- 			"--write",
-			-- 			"--config",
-			-- 			"frontend/prettier.config.js",
-			-- 			"--ignore-path",
-			-- 			"frontend/.prettierignore",
-			-- 			"$FILENAME",
-			-- 		},
-			-- 	},
-			-- },
+			formatters = {
+				-- prettier = {
+				-- 	args = {
+				-- 		"--write",
+				-- 		"--config",
+				-- 		"frontend/prettier.config.js",
+				-- 		"--ignore-path",
+				-- 		"frontend/.prettierignore",
+				-- 		"$FILENAME",
+				-- 	},
+				-- },
+				sqruff = {
+					command = "sqruff",
+					args = { "fix", "--dialect", "postgres", "-" },
+					stdin = true,
+				},
+ ["sql-formatter"] = {
+        command = "sql-formatter",
+        args = { "--language", "mysql" },
+        stdin = true,
+    },
+			},
 		},
 	},
 }

@@ -13,8 +13,10 @@ opt.number = true
 -- tabs & indentation
 opt.tabstop = 2 -- 2 spaces for tabs display
 opt.shiftwidth = 2 -- 2 spaces for indent width
-opt.expandtab = false -- USE TABS, NOT SPACES
+vim.opt.softtabstop = 2    -- Number of spaces inserted when pressing <Tab>
+opt.expandtab = true -- USE SPACES, NOT TABS
 opt.autoindent = true -- copy indent from current line when starting new one
+
 
 opt.wrap = false
 
@@ -44,3 +46,7 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+vim.opt.exrc = true
+vim.opt.secure = true
+

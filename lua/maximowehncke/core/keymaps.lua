@@ -76,5 +76,6 @@ keymap.set(
 keymap.set("n", "<leader>rr", "<cmd>e!<CR>", { desc = "Reset buffer to as it was before saving" })
 
 keymap.set("n", "<leader>bf", function()
-	vim.lsp.buf.format()
+    require("conform").format({ async = true, lsp_fallback = false })
 end, { desc = "Format buffer" })
+
