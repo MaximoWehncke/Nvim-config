@@ -76,6 +76,6 @@ keymap.set(
 keymap.set("n", "<leader>rr", "<cmd>e!<CR>", { desc = "Reset buffer to as it was before saving" })
 
 keymap.set("n", "<leader>bf", function()
-    require("conform").format({ async = true, lsp_fallback = false })
+    require("conform").format({ async = true, lsp_fallback = true })
 end, { desc = "Format buffer" })
 
